@@ -1,10 +1,10 @@
-# scala3.g8: [Scala 3] Project Template
-
+scala3.g8: [Scala 3] Project Template
+===================
 This is a [Giter8][g8] template for creating a Scala 3 [sbt] project.
 
 
-## Usage
-
+Usage
+-------------------
 Using [sbt] (preferred method), do:
 ```
 sbt new llovely/scala3.g8
@@ -17,8 +17,8 @@ Either command will generate the sbt project template in the user's current
 directory.
 
 
-## Maintenance
-
+Maintenance
+-------------------
 Version information for library dependencies and plugins are **hardcoded** in
 this template. If an update for a library dependency and/or plugin is
 available, and you **want to** use the updated version, then version information
@@ -48,8 +48,8 @@ needing to update version information:
   - ./src/main/g8/[.scalafmt.conf](https://github.com/llovely/scala3.g8/blob/main/src/main/g8/.scalafmt.conf)
 
 
-## Template license
-
+Template license
+-------------------
 Written in 2023 by [Luis Love]
 
 To the extent possible under law, the author(s) have dedicated all copyright
