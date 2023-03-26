@@ -2,7 +2,6 @@
 
 This is a [Giter8][g8] template for creating a Scala 3 [sbt] project.
 
----
 
 ## Usage
 
@@ -17,7 +16,6 @@ g8 new llovely/scala3.g8
 Either command will generate the sbt project template in the user's current
 directory.
 
----
 
 ## Maintenance
 
@@ -31,22 +29,24 @@ needing to update version information:
 
 ### Library Dependencies:
 - **ScalaTest** ([releases](https://github.com/scalatest/scalatest/releases))
-  - ./src/main/g8/[build.sbt]()
+  - ./src/main/g8/[build.sbt](https://github.com/llovely/scala3.g8/blob/main/src/main/g8/build.sbt)
 
 ### Plugins:
 - **Scalafmt** ([releases](https://github.com/scalameta/sbt-scalafmt/releases))
-  - ./src/main/g8/project/[plugins.sbt]()
+  - ./src/main/g8/project/[plugins.sbt](https://github.com/llovely/scala3.g8/blob/main/src/main/g8/project/plugins.sbt)
 - **Giter8** ([releases](https://github.com/foundweekends/giter8/releases))
-  - ./project/[plugins.sbt]()
+  - ./project/[plugins.sbt](https://github.com/llovely/scala3.g8/blob/main/project/plugins.sbt)
 
 ### Others:
+- **Scala 3 Version** ([releases](https://github.com/lampepfl/dotty/releases))
+  - ./[build.sbt](https://github.com/llovely/scala3.g8/blob/main/build.sbt)
+  - ./src/main/g8/[build.sbt](https://github.com/llovely/scala3.g8/blob/main/src/main/g8/build.sbt)
 - **sbt Version** ([releases](https://github.com/sbt/sbt/releases))
-  - ./project/[build.properties]()
-  - ./src/main/g8/project/[build.properties]()
+  - ./project/[build.properties](https://github.com/llovely/scala3.g8/blob/main/project/build.properties)
+  - ./src/main/g8/project/[build.properties](https://github.com/llovely/scala3.g8/blob/main/src/main/g8/project/build.properties)
 - **Scalafmt** ([releases](https://github.com/scalameta/scalafmt/releases))
-  - ./src/main/g8/[.scalafmt.conf]()
+  - ./src/main/g8/[.scalafmt.conf](https://github.com/llovely/scala3.g8/blob/main/src/main/g8/.scalafmt.conf)
 
----
 
 ## Template license
 
