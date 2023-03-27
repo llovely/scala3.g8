@@ -22,7 +22,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        scala: [3.2.2]
+        scala: [2.12.17]
         java: [temurin@8, temurin@11, temurin@17]
     runs-on: ${{ matrix.os }}
     steps:
@@ -67,9 +67,8 @@ jobs:
       - name: Check that workflows are up to date
         run: sbt ++${{ matrix.scala }} githubWorkflowCheck
 
-      - name: Build project
-        run: sbt ++${{ matrix.scala }} test
+      - name: Verifying sbt Project Template Construction
+        run: sbt ++${{ matrix.scala }} g8Test
 
-      - run: 'sbt -Dfile.encoding=UTF8 -J-XX:ReservedCodeCacheSize=256M test'
-
-      - run: pushd target/sbt-test/scala3-template/scripted && sbt run test && popd
+      - name: Verifying Constructed sbt Project
+        run: pushd target/sbt-test/scala3-template/scripted && sbt run test && popd
