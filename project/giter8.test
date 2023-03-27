@@ -1,0 +1,7 @@
+# Checks if the files are created
+$ exists build.sbt
+$ exists src/main/scala/Main.scala
+$ exists src/test/scala/TestSuite.scala
+
+# Runs the above tests
+> test
