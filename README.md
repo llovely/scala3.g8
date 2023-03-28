@@ -2,6 +2,9 @@ scala3.g8: [Scala 3] Project Template
 ===================
 This is a [Giter8][g8] template for creating a Scala 3 [sbt] project.
 
+For more information on how to create your own Giter8 template, look
+[here][g8-template] (or just clone/fork this repository as your starting point).
+
 
 Usage
 -------------------
@@ -51,14 +54,14 @@ needing to update version information:
 
 <br/>
 
-Additionally, the sbt-github-actions plugin is being used to generate the 
-Github Actions workflows used in this repository. It may be necessary to 
-regenerate these workflows if significant changes happen to the build of this 
-Giter8 template. Run the following commmand: 
+Additionally, the sbt-github-actions plugin is being used to generate the
+Github Actions workflows used in this repository. It may be necessary to
+regenerate these workflows if significant changes happen to the build of this
+Giter8 template. Run the following commmand:
 ```
 sbt githubWorkflowGenerate
 ```
-from within this Giter8 template project to regenerate the workflows. 
+from within this Giter8 template project to regenerate the workflows.
 Now, commit the results.
 
 
@@ -74,6 +77,7 @@ worldwide. This template is distributed without any warranty. See
 
 [g8]: https://www.foundweekends.org/giter8/
 [g8-usage]: https://www.foundweekends.org/giter8/usage.html
+[g8-template]: https://www.foundweekends.org/giter8/template.html
 [sbt]: https://www.scala-sbt.org/
 [sbt-usage]: https://www.scala-sbt.org/1.x/docs/sbt-new-and-Templates.html
 [Scala 3]: https://www.scala-lang.org/
