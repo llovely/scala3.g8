@@ -67,8 +67,11 @@ jobs:
       - name: Check that workflows are up to date
         run: sbt ++${{ matrix.scala }} githubWorkflowCheck
 
-      - name: Verifying sbt Project Template Construction
+      - name: 'sbt Project: Create'
         run: sbt ++${{ matrix.scala }} g8Test
 
-      - name: Verifying Constructed sbt Project
-        run: pushd target/sbt-test/scala3-template/scripted && sbt run test && popd
+      - name: 'sbt Project: Test & Run'
+        run: |
+          pushd target/sbt-test/scala3-template/scripted
+          sbt test run
+          popd
