@@ -22,21 +22,27 @@ ThisBuild / githubWorkflowPublishTargetBranches := Nil
 ThisBuild / githubWorkflowScalaVersions := scalaVersions
 ThisBuild / githubWorkflowJavaVersions := javaVersions
 ThisBuild / githubWorkflowBuild := Seq(
-  // Creates a sbt project and runs tests in ./project/giter8.test
-  WorkflowStep.Sbt(
-    name = Some("sbt Project: Create"),
-    commands = List("g8Test")
-  ),
-  // Tests and runs the created sbt project
   WorkflowStep.Run(
-    name = Some("sbt Project: Test & Run"),
+    name = Some("Create/Test/Run Scala 3 sbt Project: Locally"),
     commands = List(
-      s"pushd target/sbt-test/${templateName}/scripted",
+      "sbt g8Test",
+      s"pushd target/sbt-test/${projectName}/scripted",
+      "sbt test run",
+      "popd"
+    )
+  ),
+  WorkflowStep.Run(
+    name = Some("Create/Test/Run Scala 3 sbt Project: Import from THIS Repo"),
+    commands = List(
+      // Ensures that the current (THIS) repo is used for the workflow
+      s"sbt new $${{ github.repository }} --name=${workflowProjectName}",
+      s"pushd ${workflowProjectName}",
       "sbt test run",
       "popd"
     )
   )
 )
+lazy val workflowProjectName = "workflow-test-project"
 
 
 /*
@@ -49,13 +55,13 @@ addCommandAlias("test", "g8Test")
 lazy val scala212 = "2.12.17"
 lazy val scalaVersions = Seq(scala212)
 lazy val javaVersions = Seq("8", "11", "17").map(JavaSpec.temurin)
-lazy val templateName = "scala3-template"
+lazy val projectName = "scala3-template"
 
 
 lazy val root = project.in(file("."))
   .settings(
     scalaVersion := scala212, // MUST use this scala version (for now)
-    name := templateName,
+    name := projectName,
     scriptedLaunchOpts ++= Seq(
       "-Xms1024m",
       "-Xmx1024m",
