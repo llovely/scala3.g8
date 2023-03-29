@@ -18,6 +18,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
  *
  * from within THIS project directory.
  */
+ThisBuild / githubWorkflowTargetBranches := Seq("main")
 ThisBuild / githubWorkflowPublishTargetBranches := Nil
 ThisBuild / githubWorkflowScalaVersions := scalaVersions
 ThisBuild / githubWorkflowJavaVersions := javaVersions
