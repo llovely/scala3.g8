@@ -14,7 +14,7 @@ sbt new llovely/scala3.g8
 ```
 Using [Giter8][g8-usage], do:
 ```
-g8 new llovely/scala3.g8
+g8 llovely/scala3.g8
 ```
 Either command will generate the sbt project template in the user's current
 directory.
