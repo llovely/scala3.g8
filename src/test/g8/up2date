@@ -1,0 +1,38 @@
+## This is a Giter8 scripted test file, which is used by the `up2date template`
+## command in the Giter8 template project. This file is used to co-opt the
+## original `test` file used by the `g8Test` task, in order to run a
+## different set of scripted tests. These tests are ran on a generated Scala 3
+## sbt project template to check for dependency updates.
+##
+## For more details about the purpose of this Giter8 scripted test file, visit:
+## http://www.foundweekends.org/giter8/testing.html
+##
+## For examples on possible tests that can be performed in this file, visit:
+## https://www.scala-sbt.org/1.x/docs/Testing-sbt-plugins.html
+##
+## NOTE: Apparently, a comment line must have more than just whitespace, hence
+##       the double `#` usage.
+
+
+# Verifies that the following files were created.
+$ exists build.sbt
+$ exists sbt.sbt
+$ exists aliases.sbt
+$ exists README.md
+$ exists .scalafmt.conf
+$ exists .gitignore
+$ exists src/main/resources/.gitignore
+$ exists src/main/scala/Main.scala
+$ exists src/test/resources/.gitignore
+$ exists src/test/scala/ExampleSpec.scala
+$ exists src/test/scala/ExampleSuite.scala
+$ exists project/plugins.sbt
+$ exists project/sbt.sbt
+$ exists project/Dependencies.scala
+$ exists project/Utils.scala
+$ exists project/build.properties
+$ exists project/project/plugins.sbt
+
+
+# Executes the `up2date` command in the generated Scala 3 sbt project template.
+> up2date
