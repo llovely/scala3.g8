@@ -67,16 +67,12 @@ jobs:
       - name: Check that workflows are up to date
         run: sbt ++${{ matrix.scala }} githubWorkflowCheck
 
-      - name: 'Create/Test/Run Scala 3 sbt Project: Locally'
-        run: |
-          sbt g8Test
-          pushd target/sbt-test/scala3-template/scripted
-          sbt test run
-          popd
+      - name: 'Create/Test/Run Scala 3 sbt Project Template: Local'
+        run: sbt ++${{ matrix.scala }} g8Test
 
-      - name: 'Create/Test/Run Scala 3 sbt Project: Import from THIS Repo'
+      - name: 'Create/Test/Run Scala 3 sbt Project Template: Import (from THIS Repo)'
         run: |
-          sbt new ${{ github.repository }} --name=workflow-test-project
+          sbt ++${{ matrix.scala }} new ${{ github.repository }} --name=workflow-test-project
           pushd workflow-test-project
-          sbt test run
+          sbt ++${{ matrix.scala }} test run
           popd
