@@ -32,13 +32,16 @@ ThisBuild / githubWorkflowBuild := Seq(
     name=Some(
       "Create/Test/Run Scala 3 sbt Project Template: Import (from THIS Repo)"
     ),
-    // The `++${{ matrix.scala }}` string NEEDED to be manually included.
     commands=List(
-      // Ensures that the current (THIS) repo is used for the workflow.
+      /*
+       * The `${{ github.repository }}` string ensures that the current (THIS)
+       * repository is used for the workflow; the `++${{ matrix.scala }}` string
+       * NEEDED to be manually included.
+       */
       "sbt ++${{ matrix.scala }} new ${{ github.repository }} " +
         s"--name=${workflowProjectName}",
       s"pushd ${workflowProjectName}",
-      "sbt ++${{ matrix.scala }} test run",
+      "sbt test run",
       "popd"
     )
   )

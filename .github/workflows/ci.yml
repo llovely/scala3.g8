@@ -74,5 +74,5 @@ jobs:
         run: |
           sbt ++${{ matrix.scala }} new ${{ github.repository }} --name=workflow-test-project
           pushd workflow-test-project
-          sbt ++${{ matrix.scala }} test run
+          sbt test run
           popd
