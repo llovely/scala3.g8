@@ -1,0 +1,39 @@
+## This is a Giter8 scripted test file which is ran, using the `g8Test` task,
+## on a generated Scala 3 sbt project template to verify its validity.
+##
+## For more details about the purpose of this Giter8 scripted test file, visit:
+## http://www.foundweekends.org/giter8/testing.html
+##
+## For examples on possible tests that can be performed in this file, visit:
+## https://www.scala-sbt.org/1.x/docs/Testing-sbt-plugins.html
+##
+## NOTE: Apparently, a comment line must have more than just whitespace, hence
+##       the double `#` usage.
+
+
+# Verifies that the following files were created.
+$ exists build.sbt
+$ exists sbt.sbt
+$ exists aliases.sbt
+$ exists README.md
+$ exists .scalafmt.conf
+$ exists .gitignore
+$ exists src/main/resources/.gitignore
+$ exists src/main/scala/Main.scala
+$ exists src/test/resources/.gitignore
+$ exists src/test/scala/ExampleSpec.scala
+$ exists src/test/scala/ExampleSuite.scala
+$ exists project/plugins.sbt
+$ exists project/sbt.sbt
+$ exists project/Dependencies.scala
+$ exists project/Utils.scala
+$ exists project/build.properties
+$ exists project/project/plugins.sbt
+
+
+# Executes the `test` task in the generated Scala 3 sbt project template.
+> test
+
+
+# Executes the `run` task in the generated Scala 3 sbt project template.
+> run
