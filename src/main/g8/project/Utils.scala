@@ -25,11 +25,12 @@ object Utils {
 
   def prompt(projectName: String): String =
     gitInfo.fold(projectPrompt(projectName)) { g =>
-      s"\${projectPrompt(projectName)} \$g"
+      val pp = s"\${projectPrompt(projectName)}".strip
+      s"\n\${pp} \$g\n"
     }
 
   private def projectPrompt(projectName: String): String =
-    s"sbt:\${makeStyled(projectName, start=AnsiColor.MAGENTA)}"
+    s"\nsbt: \${makeStyled(projectName, start=AnsiColor.BOLD+AnsiColor.MAGENTA)}\n"
 
   def projectName(state: State): String =
     Project
@@ -41,7 +42,7 @@ object Utils {
     for {
       b <- branch.map(makeStyled(_))
       h <- hash.map(makeStyled(_, start=AnsiColor.YELLOW))
-    } yield s"[\$b|\$h]"
+    } yield s"(\$b|\$h)"
 
   private def branch(): Option[String] =
     run("git rev-parse --abbrev-ref HEAD")
