@@ -3,8 +3,10 @@ This Giter8 template comment WILL NOT be included in the generated sbt project
 template.
 
 NOTE: Dollar signs `$` must be escaped `\$` so as not to be interpreted as
-      template fields by Giter8 during variable interpolation. After
-      variable interpolation, `\$` will be converted back into `$`.
+      template fields by Giter8 during string interpolation; backslashes `\`
+      also need to be escaped `\\` to preserve their meaning after string
+      interpolation. After string interpolation, `\$` and `\\` will be
+      converted back into `$` and `\`.
 !$
 import scala.util.Try
 import scala.io.AnsiColor
