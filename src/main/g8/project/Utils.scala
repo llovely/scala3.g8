@@ -27,7 +27,7 @@ object Utils {
 
   def prompt(projectName: String): String =
     gitInfo.fold(projectPrompt(projectName)) { g =>
-      val pp = s"\${projectPrompt(projectName)}".strip
+      val pp = s"\${projectPrompt(projectName)}".strip()
       s"\n\${pp} \$g\n"
     }
 
