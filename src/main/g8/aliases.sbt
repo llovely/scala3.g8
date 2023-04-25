@@ -8,7 +8,8 @@ NOTE: Dollar signs `$` must be escaped `\$` so as not to be interpreted as
 !$
 import Utils._
 
-addCommandAlias("l", "projects")
+ThisBuild / commands += myAliases
+
 addCommandAlias("ll", "projects")
 addCommandAlias("ls", "projects")
 addCommandAlias("cd", "project")
@@ -19,29 +20,37 @@ addCommandAlias("t", "test")
 addCommandAlias("r", "run")
 addCommandAlias("rs", "reStart")
 addCommandAlias("s", "reStop")
-addCommandAlias(
-  "styleCheck",
-  "scalafmtSbtCheck; scalafmtCheckAll",
-)
-addCommandAlias(
-  "styleFix",
-  "scalafmtSbt; scalafmtAll",
-)
+addCommandAlias("styleCheck", "scalafmtSbtCheck; scalafmtCheckAll")
+addCommandAlias("styleFix", "scalafmtSbt; scalafmtAll")
 
-onLoadMessage +=
-  s"""|
-      |╭─────────────────────────────────╮
-      |│     List of defined \${styled("aliases")}     │
-      |├─────────────┬───────────────────┤
-      |│ \${styled("l")} | \${styled("ll")} | \${styled("ls")} │ projects          │
-      |│ \${styled("cd")}          │ project           │
-      |│ \${styled("root")}        │ cd root           │
-      |│ \${styled("c")}           │ compile           │
-      |│ \${styled("ca")}          │ compile all       │
-      |│ \${styled("t")}           │ test              │
-      |│ \${styled("r")}           │ run               │
-      |│ \${styled("rs")}          │ reStart           │
-      |│ \${styled("s")}           │ reStop            │
-      |│ \${styled("styleCheck")}  │ fmt check         │
-      |│ \${styled("styleFix")}    │ fmt               │
-      |╰─────────────┴───────────────────╯""".stripMargin
+
+lazy val myAliasesTable = s"""|
+  |╭─────────────────────────────────╮
+  |│     List of defined \${styled("aliases")}     │
+  |├─────────────┬───────────────────┤
+  |│ \${styled("ls")} | \${styled("ll")}     │ projects          │
+  |│ \${styled("cd")}          │ project           │
+  |│ \${styled("root")}        │ cd root           │
+  |│ \${styled("c")}           │ compile           │
+  |│ \${styled("ca")}          │ compile all       │
+  |│ \${styled("t")}           │ test              │
+  |│ \${styled("r")}           │ run               │
+  |│ \${styled("rs")}          │ reStart           │
+  |│ \${styled("s")}           │ reStop            │
+  |│ \${styled("styleCheck")}  │ fmt check         │
+  |│ \${styled("styleFix")}    │ fmt               │
+  |╰─────────────┴───────────────────╯
+  |
+  | Aliases defined in interactive mode are NOT displayed here.""".stripMargin
+lazy val myAliasesHelp = Help(
+  "myAliases",
+  "myAliases" -> "Displays a tabulated list of user defined aliases.",
+  """|myAliases
+     |
+     |  Displays a tabulated list of user defined aliases.
+     |""".stripMargin
+)
+lazy val myAliases = Command.command("myAliases", myAliasesHelp) { state =>
+  println(myAliasesTable)
+  state
+}
