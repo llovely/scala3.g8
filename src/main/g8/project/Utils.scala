@@ -18,6 +18,9 @@ object Utils {
   def styled(o: Any): String =
     makeStyled(o)
 
+  def hyphenBreakStyled(o: Any): String =
+    makeStyled(o, start=AnsiColor.YELLOW)
+
   private def makeStyled(
     o: Any,
     start: String = AnsiColor.CYAN,
@@ -28,11 +31,12 @@ object Utils {
   def prompt(projectName: String): String =
     gitInfo.fold(projectPrompt(projectName)) { g =>
       val pp = s"\${projectPrompt(projectName)}".trim()
-      s"\n\${pp} \$g\n"
+      s"\\n\${pp} \$g\\n"
     }
 
   private def projectPrompt(projectName: String): String =
-    s"\nsbt: \${makeStyled(projectName, start=AnsiColor.BOLD+AnsiColor.MAGENTA)}\n"
+    "\\nsbt: " +
+      s"\${makeStyled(projectName, start=AnsiColor.BOLD+AnsiColor.MAGENTA)}\\n"
 
   def projectName(state: State): String =
     Project
