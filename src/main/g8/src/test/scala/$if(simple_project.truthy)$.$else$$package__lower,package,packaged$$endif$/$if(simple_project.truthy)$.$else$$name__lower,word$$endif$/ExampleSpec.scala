@@ -16,17 +16,12 @@ import org.scalatest.freespec.AnyFreeSpec
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.scalacheck.ScalaCheckPropertyChecks
 
-final class ExampleSpec
-  extends AnyFreeSpec, Matchers, ScalaCheckPropertyChecks:
+final class ExampleSpec extends AnyFreeSpec, Matchers, ScalaCheckPropertyChecks:
   "A Set" - {
     "when empty" - {
-      "should have size 0" in {
-        Set.empty should have size 0
-      }
+      "should have size 0" in { Set.empty should have size 0 }
       "should produce NoSuchElementException when head is invoked" in {
-        assertThrows[NoSuchElementException] {
-          Set.empty.head
-        }
+        assertThrows[NoSuchElementException] { Set.empty.head }
       }
     }
   }

@@ -19,16 +19,12 @@ import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.scalacheck.ScalaCheckPropertyChecks
 
-final class ExampleSuite
-  extends AnyFunSuite, Matchers, ScalaCheckPropertyChecks:
+final class ExampleSuite extends AnyFunSuite, Matchers, ScalaCheckPropertyChecks:
 
-  private val validInts =
-    for n <- Gen.choose(Int.MinValue, Int.MaxValue) yield n
+  private val validInts = for n <- Gen.choose(Int.MinValue, Int.MaxValue) yield n
 
   test("Integers, when squared, should always be nonnegative") {
-    forAll((validInts, "n")) { (n: Int) =>
-      pow(n, 2) should be >= 0D
-    }
+    forAll((validInts, "n")) { (n: Int) => pow(n, 2) should be >= 0d }
   }
 
 end ExampleSuite
